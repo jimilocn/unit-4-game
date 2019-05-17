@@ -83,6 +83,10 @@ h3 {
     z-index: 1;
 }
 
+/* .divaPicture:hover {
+    transition: 0.5s;
+    opacity: 0.8; */
+
 /* .thoseDivas {
    float: right;
     margin:0;
