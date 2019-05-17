@@ -1,0 +1,96 @@
+body {
+    background: url("../images/pink\ watercolors.jpg");
+    background-size: cover;
+    background-repeat: repeat;
+    height: 100%;
+    width: 100%;
+    Margin: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background: url("../images/headphones.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 1024px;
+    height: 768px;
+    margin-left: auto;
+    Margin-right: auto;
+}
+
+.header {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-secondary {
+    background: #a9f3e8d7;
+    color: #b31f75;
+    font-weight: bolder;
+    margin-top: 10px;
+}
+
+h1 {
+    /* text-align: center; */
+    font-weight: bolder;
+    font-size: 50px;
+    color: #04afc5;
+    /* font-family: 'Baloo Bhai', cursive; */
+    font-family: 'Poller One', cursive;
+}
+
+#right {
+    text-align: right;
+    color: #e07375;
+}
+
+h2 {
+    text-align: center;
+    color: rgb(135, 85, 148);
+    font-family: 'Poller One', cursive;
+    font-size: 25px;
+    margin-top: 50px;
+}
+
+h3 {
+    color: rgb(73, 5, 90);
+    font-family: 'Poller One', cursive;
+    font-size: 20px;
+}
+
+.divaName {
+    width: 200px;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #bd5e60;
+    background: #e9a9aa;
+    top: -60px;
+    left: 1px;
+    /* border: 1px solid #a04345; */
+    font-family: 'Lobster', cursive;
+    position: relative;
+    z-index: 99;
+    margin-top: 100px;
+    margin-bottom:20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.divaPicture {
+    width: 200px;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+/* .thoseDivas {
+   float: right;
+    margin:0;
+    padding:0;
+}
+
+.firstScreen {
+    background: url("../images/band\ background.jpeg");
+    width: 100%;
+    height: 100%;
+} */
