@@ -9,11 +9,12 @@ $(document).ready(function () {
     var yourScore = 0;
     var hits = 0;
     var flops = 0;
-    var blackPink =  $("#blackPink");
-    var scoreBoard = $("#scoreBoard");
-    
-
-
+    var blackPink = $("#blackPink");
+    var divaPic = $("#divaPic");
+    var hitsDiv = $("#hits");
+    var flopsDiv = $("#flops");
+    var yourScoreDiv = $("#yourScore");
+    var alertDiv = $(".alert");
 
     // Array of images
     var imageArray = ["assets/images/Jisoo.jpg", "assets/images/Jennie.jpg", "assets/images/Lisa.jpg", "assets/images/Rose.jpg"];
@@ -21,14 +22,8 @@ $(document).ready(function () {
 
 
     function displayBillboard() {
-        $("#hits").html("Billboard #1 Hits: " + hits);
-        $("#flops").html("Terrible Flops: " + flops);
-    };
-
-    function pictureClickReset() {
-        $(".divaPicture").on("click", function () {
-            reset();
-        });
+        hitsDiv.html("Billboard #1 Hits: " + hits);
+        flopsDiv.html("Terrible Flops: " + flops);
     };
 
     function alertClickReset() {
@@ -38,46 +33,45 @@ $(document).ready(function () {
     };
 
     function displayYourScore() {
-        $("#yourScore").html("<h3>" + yourScore + "</h3>");
+        yourScoreDiv.html("<h3>" + yourScore + "</h3>");
     };
 
-    function createAlert() {
-        $(".alertalert").html("<div class='alert alert-danger alert-dismissible text-center collapse'></div>");
-    };
-
-    function resetLogo () {
+    function resetLogo() {
         blackPink.html("<img class='header' src='./assets/images/blackpink logo.png' alt='Black Pink'>");
-    }
+    };
 
-
-    function clearScoreBoard () {
+    function clearScoreBoard() {
         $("#targetDivaScore").html("");
         $("#yourDivaScore").html("");
         $("#theDivas").html("");
         $("#yourScore").html("");
         $("#targetScore").html("");
-    }
+    };
 
-    function resetScoreBoard () {
+    function resetScoreBoard() {
         $("#targetDivaScore").html("Target Diva Score");
         $("#yourDivaScore").html("Your Diva Score");
         $("#theDivas").html("~ T h e D i v a s ~ ");
-    }
+    };
+
+    function calculateTarget() {
+        targetScore = Math.floor(Math.random() * 101) + 19;
+        // show this on the screen
+        $("#targetScore").html("<h3>" + targetScore + "</h3>");
+
+    };
 
     function reset() {
         //// reset the value  whatever you need to restart  (the targetScore, yourScore, show new values the HTML  )
         targetScore = 0;
         yourScore = 0;
-        $("#divaPic").empty();
+        divaPic.empty();
         calculateTarget();
         renderImages();
-        createAlert();
         resetScoreBoard();
         displayYourScore();
         displayBillboard();
-        resetLogo ();
-
-     
+        resetLogo();
 
     };
 
@@ -87,31 +81,47 @@ $(document).ready(function () {
         yourScore = 0;
         hits = 0;
         flops = 0;
-        $("#divaPic").empty();
-        $("#alert").empty();
+        divaPic.empty();
         resetScoreBoard();
         displayYourScore();
         displayBillboard();
         calculateTarget();
         renderImages();
-        createAlert();
-        resetLogo ();
-      
-    };
-
-
-
-
-    // PLACE TO CALCULTE THE TARGETscroe
-
-    function calculateTarget() {
-        targetScore = Math.floor(Math.random() * 101) + 19;
-        // show this on the screen
-        $("#targetScore").html("<h3>" + targetScore + "</h3>");
+        resetLogo();
 
     };
 
+    function playAudioWin() {
+        var audioWinElement = document.createElement("audio");
 
+        audioWinElement.setAttribute("src", "assets/sounds/black pink in your area cut 3.mp3");
+
+        audioWinElement.play();
+    };
+
+    function playAudioLoss() {
+        var audioLossElement = document.createElement("audio");
+
+        audioLossElement.setAttribute("src", "assets/sounds/boo2.mp3");
+
+        audioLossElement.play();
+    };
+
+    function alertWin() {
+        $("#divaPic").html("<div class='alert alert-danger alert-dismissible text-center collapse'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>HOT! HOT! HOT!</strong> You reached the Billboard's #1 Spot! Let's do that again! Click to restart!</div>");
+
+        $(".alert").show();
+
+        blackPink.html("<img class='gif' src='assets/images/Black Pink Love.gif' alt='Black Pink'></img>");
+    };
+
+    function alertLoss() {
+        $("#divaPic").html("<div class='alert alert-danger alert-dismissible text-center collapse'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>BOO! OH NO!</strong> Everyone thought the girls were annoying... Let's try again! Click to restart!</div>");
+
+        $(".alert").show();
+
+        blackPink.html("<img class='gif' src='assets/images/black pink sad.gif' alt='Black Pink'></img>")
+    };
 
     function renderImages() {
         var numberOptions = [Math.floor(Math.random() * 11) + 1, Math.floor(Math.random() * 11) + 1, Math.floor(Math.random() * 11) + 1, Math.floor(Math.random() * 11) + 1];
@@ -144,13 +154,12 @@ $(document).ready(function () {
 
 
             if (yourScore === targetScore) {
-                $("#divaPic").html("<div class='alert alert-danger alert-dismissible text-center collapse'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>HOT! HOT! HOT!</strong> IT IS A HUGE HIT! Let's make another one!</div>");
 
-                $(".alert").show();
+                playAudioWin();
 
-                blackPink.html("<img class='gif' src='assets/images/Black Pink Love.gif' alt='Black Pink'></img>")
+                alertWin();
 
-                clearScoreBoard ();
+                clearScoreBoard();
 
                 hits++;
 
@@ -158,41 +167,23 @@ $(document).ready(function () {
 
                 hitsDiv.html("Billboard #1 Hits: " + hits);
 
-                pictureClickReset();
-
-                var audioWinElement = document.createElement("audio");
-
-                audioWinElement.setAttribute("src", "assets/sounds/black pink in your area cut 2.mp3");
-
-                audioWinElement.play();
-
                 alertClickReset();
 
 
             }
 
             else if (yourScore >= targetScore) {
-                $("#divaPic").html("<div class='alert alert-danger alert-dismissible text-center collapse'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>BOO! OH NO!</strong> Everyone thought the girls were annoying... Let's try again!</div>");
+                playAudioLoss();
 
-                $(".alert").show();
-
-                blackPink.html("<img class='gif' src='assets/images/black pink sad.gif' alt='Black Pink'></img>")
-
-                clearScoreBoard ();
+                alertLoss();
+                
+                clearScoreBoard();
 
                 flops++;
 
                 var flopsDiv = $("#flops");
 
                 flopsDiv.html("Terrible Flops: " + flops);
-
-                pictureClickReset();
-
-                var audioLossElement = document.createElement("audio");
-
-                audioLossElement.setAttribute("src", "assets/sounds/boo.mp3");
-
-                audioLossElement.play();
 
                 alertClickReset();
             }

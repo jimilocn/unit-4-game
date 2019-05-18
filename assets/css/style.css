@@ -20,21 +20,21 @@ body {
 
 .header {
     width: 100%;
-    margin-top: 75px;
+    margin-top: 80px;
 }
 
 .btn-secondary {
     background: #a9f3e8d7;
     color: #b31f75;
     font-weight: bolder;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 .reset {
     background: #f7c1c2;
     color: #0298ac;
     font-weight: bolder;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 #targetScore, #yourScore {
@@ -116,6 +116,7 @@ h4 {
     width: 650px;
     margin-top:30px;
     border-radius: 10px;
+    width:100%;
 }
 
     /* .thoseDivas {
