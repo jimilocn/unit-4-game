@@ -7,104 +7,95 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- used to make sure that page is standardized across all platforms and windows -->
     <link rel="stylesheet" href="./assets/css/reset.css">
-    <!-- used for ease of placement of content within page -->
+    <!-- used for ease of placement of content within page and bootstrap buttons-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- used for basic styling within page -->
     <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- Added link to the jQuery Library -->
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Lobster|Poller+One" rel="stylesheet">
-    <title>Video Game</title>
+    <title>BLINK GAME</title>
 </head>
 
 <body>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-2">
-                <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover"
+            <!-- popover button from bootstrap that tells you how to play the game -->
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-secondary text-center" data-container="body" data-toggle="popover"
                     data-placement="bottom"
-                    data-content="The name of the game is balance! No Diva can outshine the other without damaging the harmony of the group! Let each Diva shine 'just the right amount' to reach Super Stardom and top the charts! Click on each diva to raise your Diva Score as close to the Manager's recommended score for each single release!">
+                    data-content="No Diva can outshine the other without damaging the harmony of the group! Let each Diva shine 'just the right amount' to reach Super Stardom and top the charts! Click on each diva to raise your Diva Score as close to the Manager's recommended score for each single release!">
                     How to Top the Charts!
                 </button>
             </div>
-            <div class="col-md-8 text-center">
+            <!-- game logo -->
+            <div class="col-sm-8 text-center" id="blackPink">
                 <img class="header" src="./assets/images/blackpink logo.png" alt="Black Pink">
             </div>
-            <div class="col-md-2"> <button type="button" class="btn btn-outline-danger reset">Reset Entire Game</button>
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 text-center">
-                <h2>Target Diva Score</h2>
-                <br>
-                <div id="targetScore"></div>
-            </div>
-            <div class="col-md-6 text-center">
-                <h2>Your Diva Score</h2>
-                <br>
-                <div id="yourScore"></div>
-            </div>
-
-
-        </div>
-
-        <!-- <div class="row">
-
-            <div class="col-md-12 text-center">
-                <h4 id="alert"></h4>
-            </div>
-
-        </div> -->
-
-
-        <!-- <div class="alert alert-danger alert-dismissible text-center collapse">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Success!</strong> Indicates a successful or positive action.
-        </div> -->
-        <!-- <div class="alertalert">
-
-        </div> -->
-
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h1 id="theDivas">The Divas</h1>
+            <!-- reset the entire game if you want to reset hits and flops -->
+            <div class="col-sm-2"> <button type="button" class="btn btn-outline-danger reset">Reset Entire Game</button>
             </div>
         </div>
+        <div id="scoreBoard">
+            <div class="row">
+                <!-- title for the computer score -->
+                <div class="col-sm-6 text-center">
+                    <h2 id="targetDivaScore">Target Diva Score</h2>
+                    <br>
+                    <!-- where the computer score is being pushed into by the javascript -->
+                    <div id="targetScore"></div>
+                </div>
 
+                <!-- title for the player score -->
+                <div class="col-sm-6 text-center">
+                    <h2 id="yourDivaScore">Your Diva Score</h2>
+                    <br>
 
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <div id="divaPic">
+                    <!-- where player score is being pushed into by the javascript -->
+                    <div id="yourScore"></div>
                 </div>
             </div>
 
+
+            <div class="row">
+                <!-- title for the pictures -->
+                <div class="col-sm-12 text-center">
+                    <h1 id="theDivas">~ T h e D i v a s ~ </h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- empty div for the generation of pictures to be pushed by javascript -->
+            <div class="col-sm-12 text-center">
+                <div id="divaPic">
+                </div>
+            </div>
         </div>
 
 
         <div class="row">
-            <div class="col-md-6 text-center">
+            <!-- where the JS will put number of hits generated during game -->
+            <div class="col-sm-6 text-center">
                 <div id="hits"></div>
             </div>
-            <div class="col-md-6 text-center">
+            <!-- where the JS will put number of flops generated during game -->
+            <div class="col-sm-6 text-center">
                 <div id="flops"></div>
             </div>
         </div>
-
-
-
     </div>
 
-
+    <!-- linking jquery for functionality -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
+    <!-- JS for popover -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
+    <!-- bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
