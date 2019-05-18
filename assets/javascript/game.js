@@ -12,8 +12,8 @@ $(document).ready(function () {
     var flops = 0;
 
     var imageArray = ["assets/images/Jisoo.jpg", "assets/images/Jennie.jpg", "assets/images/Lisa.jpg", "assets/images/Rose.jpg"];
-    $("#hits").html("<h3>Hits: " + hits + "</h3>");
-    $("#flops").html("<h3>Flops: " + flops + "</h3>");
+    $("#hits").html("Billboard #1 Hits: " + hits);
+    $("#flops").html("Terrible Flops: " + flops);
     //
 
     function reset() {
@@ -24,6 +24,25 @@ $(document).ready(function () {
         $("#divaPic").empty();
         calculateTarget();
         renderImages();
+        $(".alertalert").html("<div class='alert alert-danger alert-dismissible text-center collapse'></div>");
+
+
+    };
+
+    function resetAll() {
+        //// reset the value  whatever you need to restart  (the targetScore, yourScore, show new values the HTML  )
+        targetScore = 0;
+        yourScore = 0;
+        hits = 0;
+        flops = 0;
+        $("#yourScore").html("<h3>" + yourScore + "</h3>");
+        $("#divaPic").empty();
+        $("#hits").html("Billboard #1 Hits: " + hits);
+        $("#flops").html("Terrible Flops: " + flops);
+        $("#alert").empty();
+        calculateTarget();
+        renderImages();
+        $(".alertalert").html("<div class='alert alert-danger alert-dismissible text-center collapse'></div>");
 
     };
 
@@ -71,24 +90,50 @@ $(document).ready(function () {
 
 
             if (yourScore === targetScore) {
+                $("#divaPic").html("<div class='alert alert-danger alert-dismissible text-center collapse'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>HOT! HOT! HOT!</strong> IT IS A HUGE HIT! Let's make another one!</div>");
+                $(".alert").show();
                 hits++;
                 var hitsDiv = $("#hits");
-                hitsDiv.html("<h3>Hits: " + hits + "</h3>");
-                reset();
+                hitsDiv.html("Billboard #1 Hits: " + hits);
+                $(".divaPicture").on("click", function () {
+                    reset();
+                });
+                var audioWinElement = document.createElement("audio");
+                audioWinElement.setAttribute("src", "assets/sounds/black pink in your area cut 2.mp3");
+                audioWinElement.play();
+                $(".alert").on("click", function () {
+                    reset();
+                });
+
+
             }
 
             else if (yourScore >= targetScore) {
+                $("#divaPic").html("<div class='alert alert-danger alert-dismissible text-center collapse'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>BOO! OH NO!</strong> Everyone thought the girls were annoying... Let's try again!</div>");
+                $(".alert").show();
                 flops++;
                 var flopsDiv = $("#flops");
-                flopsDiv.html("<h3>Flops:" + flops + "</h3>");
-                reset();
+                flopsDiv.html("Terrible Flops: " + flops);
+                $(".divaPicture").on("click", function () {
+                    reset();
+                });
+                var audioLossElement = document.createElement("audio");
+                audioLossElement.setAttribute("src", "assets/sounds/boo.mp3");
+                audioLossElement.play();
+                $(".alert").on("click", function () {
+                    reset();
+                });
+
+
             }
 
 
         });
     }
     $(".reset").on("click", function () {
-        reset();
+        resetAll();
     });
+
+
     reset();
 });
