@@ -14,18 +14,16 @@ $(document).ready(function () {
     var hitsDiv = $("#hits");
     var flopsDiv = $("#flops");
     var yourScoreDiv = $("#yourScore");
-    var alertDiv = $(".alert");
-
     // Array of images
     var imageArray = ["assets/images/Jisoo.jpg", "assets/images/Jennie.jpg", "assets/images/Lisa.jpg", "assets/images/Rose.jpg"];
 
 
-
+// used to display the number of hits and flops that have been acquired throughout the game
     function displayBillboard() {
-        hitsDiv.html("Billboard #1 Hits: " + hits);
+        hitsDiv.html("Billboard Hits: " + hits);
         flopsDiv.html("Terrible Flops: " + flops);
     };
-
+// this is used to 
     function alertClickReset() {
         $(".alert").on("click", function () {
             reset();
@@ -108,7 +106,7 @@ $(document).ready(function () {
     };
 
     function alertWin() {
-        $("#divaPic").html("<div class='alert alert-danger alert-dismissible text-center collapse'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>HOT! HOT! HOT!</strong> You reached the Billboard's #1 Spot! Let's do that again! Click to restart!</div>");
+        $("#divaPic").html("<div class='alert alert-danger alert-dismissible text-center collapse'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>HOT! HOT! HOT!</strong> You reached the Billboard's #1 Spot! Let's do that again! Click to here restart!</div>");
 
         $(".alert").show();
 
@@ -116,7 +114,7 @@ $(document).ready(function () {
     };
 
     function alertLoss() {
-        $("#divaPic").html("<div class='alert alert-danger alert-dismissible text-center collapse'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>BOO! OH NO!</strong> Everyone thought the girls were annoying... Let's try again! Click to restart!</div>");
+        $("#divaPic").html("<div class='alert alert-danger alert-dismissible text-center collapse'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>BOO! OH NO!</strong> Everyone thought the girls were annoying... Let's try again! Click to here restart!</div>");
 
         $(".alert").show();
 
@@ -165,7 +163,7 @@ $(document).ready(function () {
 
                 var hitsDiv = $("#hits");
 
-                hitsDiv.html("Billboard #1 Hits: " + hits);
+                hitsDiv.html("Billboard Hits: " + hits);
 
                 alertClickReset();
 
@@ -176,7 +174,7 @@ $(document).ready(function () {
                 playAudioLoss();
 
                 alertLoss();
-                
+
                 clearScoreBoard();
 
                 flops++;
