@@ -1,3 +1,4 @@
+/* styling for soft pink and blue background that sits under the headphones picture */
 body {
     background: url("../images/pink\ watercolors.jpg");
     background-size: cover;
@@ -8,6 +9,7 @@ body {
     box-sizing: border-box;
 }
 
+/* stylings for the headphone pic as the background for the bootstrap container */
 .container {
     background: url("../images/headphones.jpg");
     background-size: 100%;
@@ -16,117 +18,93 @@ body {
     height: 100%;
     margin-left: auto;
     Margin-right: auto;
+    font-family: 'Poller One', cursive;
 }
 
+/* styling for the game logo */
 .header {
     width: 100%;
     margin-top: 80px;
 }
 
+/* styling for the game instruction popover buttong */
 .btn-secondary {
     background: #a9f3e8d7;
     color: #b31f75;
     font-weight: bolder;
     margin-top: 20px;
+    font-size:15px;
 }
 
+/* styling for the reset button on the top right */
 .reset {
     background: #f7c1c2;
     color: #0298ac;
     font-weight: bolder;
     margin-top: 20px;
+    font-size:15px;
 }
 
+/* styling for the two score divs */
 #targetScore, #yourScore {
     margin-top: 5px;
 }
 
+/* styling for the "the Divas"*/
 h1 {
-    /* text-align: center; */
     font-weight: bolder;
     font-size: 40px;
     color: #04afc5;
-    /* font-family: 'Baloo Bhai', cursive; */
-    font-family: 'Poller One', cursive;
 }
 
+/* Styling for targetscore and yourscore */
 h2 {
-    text-align: center;
     color: rgb(135, 85, 148);
-    font-family: 'Poller One', cursive;
     font-size: 30px;
-    /* margin-top: 50px; */
     margin-bottom:0px;
 }
 
+/* styling for targetscore and your score */
 h3 {
     color: rgb(73, 5, 90);
-    font-family: 'Poller One', cursive;
     font-size: 30px;
-    z-index: 1;
     margin-bottom:0px;
 }
 
+/* stylings for the hits and flops at the bottom of the screen */
 #hits, #flops {
     color: rgb(73, 5, 90);
-    font-family: 'Poller One', cursive;
     font-size: 20px;
-    z-index: 1;
-
 }
 
-h4 {
-    color: #c46364;
-    font-size: 30px;
-    font-family: 'Poller One', cursive;
-    position: relative;
-    z-index: 99;
-}
-
-.alertalert {
-    margin: 20px;
-}
-
+/* styling for font inside alert when you win and lose */
 .alert-danger {
     padding:15px;
     font-size: 30px;
-    position: relative;
-    z-index: 99;
     font-weight: bolder;
 }
 
-
+/* styling for the pictures */
 .divaPicture {
     width: 225px;
     padding: 10px 30px 10px;
-    z-index: 1;
 }
 
+/* styling for the text THE DIVAS */
 #theDivas {
     margin-top: 80px;
-    z-index: 1;
 }
 
+/* stying to hover for the pictures */
 .divaPicture:hover {
     transition: 0.5s;
     opacity: 0.7;
 }
 
+/* styling for the gif that is generated into the logo spot after win and lose */
 .gif {
     width: 650px;
     margin-top:30px;
     border-radius: 10px;
     width:100%;
 }
-
-    /* .thoseDivas {
-   float: right;
-    margin:0;
-    padding:0;
-}
-
-.firstScreen {
-    background: url("../images/band\ background.jpeg");
-    width: 100%;
-    height: 100%;
-} */
