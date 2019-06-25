@@ -30,6 +30,8 @@ $(document).ready(function () {
         });
     };
 
+    
+
     // this code displays the user score after clicking each Diva's picture
     function displayYourScore() {
         yourScoreDiv.html("<h3>" + yourScore + "</h3>");
