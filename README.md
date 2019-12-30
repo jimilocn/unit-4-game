@@ -1,4 +1,4 @@
-# unit-4-game <img src="/blackpinkgame.PNG"/>
+# Black Pink Click Game <img src="/blackpinkgame.PNG"/>
 
 Black Pink in your Area!
 Try out the site live here: https://jimilocn.github.io/unit-4-game/
